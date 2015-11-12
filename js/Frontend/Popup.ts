@@ -198,6 +198,8 @@ class Frontend_Popup extends UI_Event {
 
 		if ( this._root && this._root.parentNode ) {
 			
+			this.fire('close');
+
 			this._root.parentNode.removeChild(this._root);
 			
 			// set cookie

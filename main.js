@@ -554,6 +554,7 @@ var Frontend_Popup = (function (_super) {
             Frontend_Popup.instances.splice(Frontend_Popup.instances.indexOf(this), 1);
         }
         if (this._root && this._root.parentNode) {
+            this.fire('close');
             this._root.parentNode.removeChild(this._root);
             // set cookie
             var cookie = Frontend.storage.cookie.get('frpop') || '', i, cookies = cookie.split(','), len, found;
