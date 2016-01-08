@@ -225,7 +225,7 @@ class Frontend_Popup extends UI_Event {
 				cookies[0] = this._hash;
 			}
 
-			Frontend.storage.cookie.set('frpop', cookies.join(','), Frontend_Popup.cookieDate );
+			Frontend.storage.cookie.set('frpop', cookies.join(','), Frontend_Popup.cookieDate, '/' );
 
 			if ( this._timer !== null ) {
 				
@@ -251,13 +251,13 @@ class Frontend_Popup extends UI_Event {
 					cookies[0] = this._hash + ':' + ( parseInt( (Date.now() / 1000).toFixed(0) ) + this._timer );
 				}
 
-				Frontend.storage.cookie.set('frpopt', cookies.join(','), Frontend_Popup.cookieDate );
+				Frontend.storage.cookie.set('frpopt', cookies.join(','), Frontend_Popup.cookieDate, '/' );
 
 			}
 
 			// setup cooldown
 			if ( Frontend_Popup.coolDown > 0 ) {
-				Frontend.storage.cookie.set('frpopc', String((parseInt((Date.now() / 1000).toFixed(0)) + Frontend_Popup.coolDown)), Frontend_Popup.cookieDate );
+				Frontend.storage.cookie.set('frpopc', String((parseInt((Date.now() / 1000).toFixed(0)) + Frontend_Popup.coolDown)), Frontend_Popup.cookieDate, '/' );
 			}
 
 			this._closed = true;
@@ -286,7 +286,7 @@ class Frontend_Popup extends UI_Event {
 
 		if ( found ) {
 			if ( cookies.length ) {
-				Frontend.storage.cookie.set('frpopt', cookies.join(','), Frontend_Popup.cookieDate);
+				Frontend.storage.cookie.set('frpopt', cookies.join(','), Frontend_Popup.cookieDate, '/');
 			} else {
 				Frontend.storage.cookie.remove('frpopt');
 			}
@@ -329,7 +329,7 @@ class Frontend_Popup extends UI_Event {
 
 		if ( cookies.indexOf( this._hash ) > -1 ) {
 			cookies.splice(cookies.indexOf(this._hash), 1);
-			Frontend.storage.cookie.set('frpop', cookies.join(','), Frontend_Popup.cookieDate);
+			Frontend.storage.cookie.set('frpop', cookies.join(','), Frontend_Popup.cookieDate, '/');
 		}
 	}
 
